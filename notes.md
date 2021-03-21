@@ -1,7 +1,7 @@
 > Blockchain Developer
 > Udacity Nanodegree
 
-# Blockchain Developer Nanodegree
+# Lesson 1: Blockchain Basics
 
 > Blockchain
 > Shared database that contains a list of transactions
@@ -183,3 +183,76 @@ A unique digital fingerprint that is derived from the block's data being passed 
 Tool: [Ander's | Block](https://andersbrownworth.com/blockchain/block)
 Exercise: [Practice Block](./exercises/block)
 
+## Blockchain
+
+The place where data is stored; every other component is the system around the blockchain that makes it all work.
+
+> Blockchain
+> Digital ledger that contains the entire history of transactions made on the network
+
+**All of the information on the blockchain is permanent and cannot be changed**
+
+The blockchain is constructed of two main things, blocks and hash values.
+
+![Blockchain](./assets/blockchain.png)
+
+### Invalidation 
+If data is changed in a block, that block will be invalidated along with any blocks that succeed it and thus breaking the blockchain.
+
+![Blockchain Invalidation](./assets/blockchain_invalid_block.png)
+
+### Genesis Block
+The first block in the blockchain is called the **genesis block**
+
+![Blockchain Invalidation](./assets/blockchain_genesis_block.png)
+
+Tool: [Ander's | Blockchain](https://andersbrownworth.com/blockchain/blockchain)
+
+## Distributed Peer-to-Peer Network
+
+> Peer-to-Peer Network
+> A network of computers that allows information to be shared across users
+
+Allows users, known as a nodes, to send information directly among each other without a centralized service.
+
+![Peer-to-Peer](./assets/network_peer_peer.png)
+
+> Distributed Network
+> A network that allows information to spread out across many users
+
+With peer-to-peer allowing users to send information among each other, being distributed also allows the user to own the information as well.
+
+### Types
+
+![Network Types](./assets/network_types.png)
+
+#### Centralized
+Everything connects to a single central owner, which creates a single point of failure as well.
+
+#### Decentralized
+Instead of a single point, it is now spread across multiple points.
+
+#### Distributed
+Decentalization at the maximum, now every user on the network has the same access and ownership
+
+**Blockchain is a distributed peer-to-peer network where everyone downloads a copy of the blockchain on their computer**
+
+## Memory Pool
+This is where transactions reside before going on the blockchain or becoming part of the network, also knows as the **mempool**
+
+As the number of transactions being made exceed what the network can process a queue is created.
+
+> Mempool
+> Waiing place for all unconfirmed transactions before they are added to the blockchain
+
+Transactions are not instant, as they need to be confirmed by the network and are done so by specialized nodes in the network called miners. Miners pull from the mempool to validate transactions before they are added to the blockchain to keep consensus.
+
+![Miners](./assets/mempool_miners.png)
+
+### Resources
+[Blockchain.com](https://www.blockchain.com/about/index.html)
+
+* [Unconfirmed Transactions](https://blockchain.com/unconfirmed-transactions)
+* [Blockchain Data Charts](https://blockchain.com/charts)
+
+[Blockchain Visuals](https://bitcoinvisuals.com/stats)
