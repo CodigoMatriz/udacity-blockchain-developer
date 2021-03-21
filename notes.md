@@ -93,7 +93,93 @@ A unique value is given to each block on the blockchain to create a unique ident
 
 Allows to reference a block by its hash value and create the foundation in how blocks are chained.
 
-Tool: [SHA256 Hash](https://andersbrownworth.com/blockchain/hash)
+Tool: [Ander's | SHA256 Hash](https://andersbrownworth.com/blockchain/hash)
+Exercise: [Practice Hashing](./exercises/hashing)
 
 ## Blocks
+
+Fundamental componenets of the blockchain.
+
+> Block
+> A container that holds a list of transactions to be added to the blockchain
+
+> Blockhain
+> Shared digital ledger that records a list of transactions
+
+### Transactions
+
+Without the blocks, which compartmentalize the transactions, it would create a massive list of transactions that would be difficult to work with or manage.
+
+<figure>
+<img src="./assets/transactions_list.png" align="center" />
+<figcaption align="center">Transaction list without blocks</figcaption>
+</figure>
+
+<figure>
+<img src="./assets/transactions_blocks.png" align="center" />
+<figcaption align="center">Transaction list separated into blocks</figcaption>
+</figure>
+
+With the transactions broken out into blocks, it makes it easier to manage, with transactions held in the *body of a block*
+
+### Block Header
+
+Additional information is stored in the block as well, this is at the _block header_ which details the structure of the data within
+
+![Transaction List](./assets/block_header.png)
+
+#### Previous Block's Hash
+hash of the block before the current one. Allows the blocks to be linked together by knowing what came before / after
+
+![Previous Block's Hash](./assets/block_previous_hash.png)
+
+---
+
+#### Time
+when the block was created, which helps in avoidining double-spending and validates which block came first
+
+![Time](./assets/block_time.png)
+
+---
+
+#### Merkle Root
+hash that represents every transaction inside the block, which is derived from pairs of the transactions insde the block repeatedly hashed together.
+
+Each pair results in a hash which is hashed repeatedly until a single hash value is generated.
+
+![Merkle Root](./assets/block_merkle_root.png)
+
+---
+
+#### Nonce
+related more towards mining. An arbitrary value that can only be used once. 
+
+When a hash is created for a block, a very specific value is required that starts with a set number of zeros that determines the hash's difficulty to find.
+
+Requiring all the block data and the nonce to get the hash value, which the computer does over and over until the appropriate hash is found.
+
+![None](./assets/block_nonce.png)
+
+---
+
+### Block Difficulty
+
+A block's difficulty is determined by the amound of zeros prepended to the hash More zeros increases the diffilculty while less does the reverse.
+
+![Block Diffilculty](./assets/block_difficulty.png)
+
+### Block Size
+
+This is the amount of data it takes to the block fill up before a new one needs to be created. Block size affects all the blocks in the blockchain and is determined by the developer, thus requiring an update to the software to change the block size value.
+
+![Block Size](./assets/block_size.png)
+
+### Block Hash
+
+A unique digital fingerprint that is derived from the block's data being passed through a SHA256 algorithm. If any of the data changes within the block, a new hash would be derived, allowing to determine if the block's data was tampered.
+
+![Block Hash](./assets/block_hash.png)
+
+Tool: [Ander's | Block](https://andersbrownworth.com/blockchain/block)
+Exercise: [Practice Block](./exercises/block)
 
