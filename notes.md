@@ -281,7 +281,10 @@ a situation where spread out nodes need to coordinate their behavior or action b
 
 Additional Reading: [What is the Byzantine Generals Problem? | CoinCentral](https://coincentral.com/byzantine-generals-problem/)
 
+The following algorithms are three of the many out there
+
 #### Proof of Work
+
 whoever puts in the most work to contribute to the system is the most trustworthy
 
 > Proof of Work
@@ -301,7 +304,7 @@ In Bitcoin, the difficulty is adjusted automatically so that a block is generate
 
 ![Bitcoin Difficulty](./assets/bitcoin_difficulty.png)
 
-##### Issues
+##### Potential Issues
 Extremely High-Energy Consumption
 
 ![Bitcoin Energy Consumption](./assets/bitcoin_energy_consumption.png)
@@ -349,3 +352,110 @@ The punisher strategy, well, punishes validators for creating a block on the wro
 [Ethereum's Proof of Stake FAQs](https://eth.wiki/en/concepts/proof-of-stake-faqs)
 
 #### Delegated Byzantine Fault Tolerance (DBFT)
+Tries to achieve consensus by assigning roles to nodes to help coordinate consensus.
+
+> Delegated Byzantine Fault Tolerance
+> Consensus algorithm based on assigning roles to nodes to help coordinate consensus
+
+##### How does it work?
+Does not users miners, instead has nodes that are split into ordinary nodes and concensus nodes.
+
+![DBFT | How does it work?](./assets/dbft_work.png)
+
+Majority of nodes, are ordinary nodes, in the network that can transfer or exchange assets but do not participate in validating blocks.
+
+For an ordinary node to a concensus node it requires meeting criteria set by the platform.
+
+Concensus nodes are able to validate blocks on the blockchain, acts as a representative to the other nodes in the network. Keeping track of proposed blocks that can be added to the blockchain and when a new block needs to be added to the chain a concensus node will be randomly chosen from all the concensus nodes in the pool.
+
+In the neo blockhain, the chosen concensus node is referred to as the **speaker** while the rest of the concensus nodes are **delegates**. For the new block to be added to the chain proposed by the speaker, 2/3 of the delegates must approve the new block to be added to the blockchain. If the proposed block is denied, then a new speaker is chosen and the previous speaker becomes a delegate.
+
+![DBFT Speaker?](./assets/dbft_speaker.png)
+
+Supposed to be much faster than proof-of-work and requires much less resources as there are not cryptographic puzzles to solve and is resistant to forking as there is only one version of truth.
+
+##### Issues / Strategies
+
+**Dishonest Speaker**
+In this scenario the speaker could be dishonest or malfunction, and in so, relies on the honest delegates to block the proposed block so it doesn't receive the 2/3 approval rate. Since delegates are voted on by the users of the protocol and the speaker is randomly selected from this delegate group, it's up to the users to determine which delegates are trustworthy to vote them into power.
+
+**Dishonest Delegate**
+Up to users to do their due diligence to vote honest delegates into power so dishonest ones are in the minority. If a monitory of delegates are dishonest, up to the honest ones to block the proposed block down to not make it into the blockchain. To help with this scenario, some blockchain platforms release data about the honesty and functioning of each delegate for voters to review.
+
+#### Other Consensus Models
+
+**Proof of Work**
+[Bitcoin’s whitepaper on PoW](https://bitcoin.org/bitcoin.pdf)
+
+**Proof of Stake**
+[Ethereum’s Proof of Stake FAQs](https://eth.wiki/en/concepts/proof-of-stake-faqs)
+
+* [Block Selection methods](https://en.wikipedia.org/wiki/Proof_of_stake)
+	- Randomized block selection
+	- Coin age-based selection
+* [Alternative Proof of Stake Methods](https://dailyfintech.com/2016/01/20/why-proof-of-stake-matters-for-blockchain/#content-wrapper)
+	- Transparent Forging
+	- Delegated Proof of Stake
+
+**Delegated Byzantine Fault Tolerance**
+[NEO's Consensus Protocol](https://steemit.com/neo/@basiccrypto/neo-s-consensus-protocol-how-delegated-byzantine-fault-tolerance-works)
+
+**Proof Of Activity**
+[Proof of Activity Explained: A Hybrid Consensus Algorithm](https://www.coinbureau.com/blockchain/proof-of-activity-explained-hybrid-consensus-algorithm/)
+
+**Proof Of Burn**
+[What is Proof of Burn?](https://99bitcoins.com/what-is-proof-of-burn/)
+
+## Lesson 2: Managing Blockchain Transactions
+
+### Blockchain Identity
+It is your unique identifier to establish yourself in the blockchain world, this is the **wallet address**.
+
+> Wallet Address
+> A unique identifier for your wallet
+
+A wallet address cannot be traced due to the way it is created, from a private key > public key > wallet address.
+
+> Private Key
+> A secret number that allows you to spend coin from your wallet
+
+Private keys are not to be shared with anyone, so we must derive a public key from the private key.
+
+> Public Key
+> Publicly shareable key that cannot be used to spend coin
+
+Public keys can be shared without worry of the security of our private key, but the private key must be linked to that public key.
+
+Bitcoin uses the Elliptic Curve Digital Signature Algorithm (ECDSA) to produce a public key from a private key.
+
+![ECDSA](./assets/identity_ecdsa.png)
+
+Now the wallet can use the private and public key to track transactions.
+
+Sadly, even though we can share the public key safely it can still be traced back to the owner, and this is done with a **wallet address**.
+
+> Wallet Address
+> A unique identifier for your wallet
+
+A wallet address is created from the public key and in Bitcoins case it goes through two alogrithms, SHA256 and RIPEMD160.
+
+![Wallet Address](./assets/identity_wallet_address.png)
+
+Now that we have the wallet address we need to do one more thing to it for ease of sharing and useability by removing letters and numbers that look the same by passing it through a Base58Check.
+
+![Full-Scope Wallet Address](./assets/identity_wallet_address_finished.png)
+
+### Wallet Types
+
+![Wallet Types](./assets/wallet_types.png)
+
+> Non-deterministic Wallet (Random Wallet)
+> A wallet where private keys are generated from random numbers
+
+> Deterministic Wallet
+> A wallet where addresses, private keys, and public keys can be traced back to their original seed words
+
+> Hierarchical Deterministic Wallet
+> An advanced type of deterministic wallet that contains keys derived in a tree structure
+
+![HD Wallet](./assets/hd_wallet.png)
