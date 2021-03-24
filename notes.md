@@ -459,3 +459,111 @@ Now that we have the wallet address we need to do one more thing to it for ease 
 > An advanced type of deterministic wallet that contains keys derived in a tree structure
 
 ![HD Wallet](./assets/hd_wallet.png)
+
+#### Non-Deterministic Wallet
+Buncha random keys generated.
+
+```text
+Random number -> Private Key -> Public Key -> Wallet Address
+```
+
+#### Deterministic Wallet
+
+##### Sequential Determinisic Wallet
+Random number is generated to create a seed, which is then passed through a mathermatical function to create a series of private keys.
+
+The seed allows to import/export a wallet and allows for easy migration of the keys between different wallet platforms.
+
+![Sequential Determinisitc Wallet](./assets/sequential_deterministic_wallet.png)
+
+##### Hietarchical Deterministic Wallet
+Fanciest type. Allows to create sub-private and sub-public keys to be able to branch off portions of the wallet and jail access to those areas.
+
+![HD Wallet](./assets/hd_wallet.png)
+
+### Private Keys
+
+> Private Key
+> A 256-bit random number between 1 and 2^256.
+
+It can be represented in different formats but they all correspond to the 256-but number.
+
+![Private Key Formats](./assets/private_key_formats.png)
+
+So how is every private key unique?
+The key is generated between 2 and 2^256, that is one large number. In perspective, there is 2^63 (7 quintillion) grains of sand on earth.
+
+To generate a key at simplest terms, you can take a coin and flip it 256 times. For each head write a 1 and 0 for tails, this would be the binary form of a random private key.
+
+> Entropy
+> Lack of order or predicatbility. It's the degree of disorder or randomness in the system
+
+### Sign a Transaction
+
+> Signature
+> Establishes proof of ownership for each transaction on the blockchain
+
+Transactions start broadcasting to the network when a wallet signs the transaction. 
+
+Ensure's that it is you who's sending the coins by signing it with your identity, which is your wallet address.
+
+Once signed, it goes from the sender to the receiver as a transaction message. Which in Bitcoin, it is broadcasted to the chain as an **unspent transaction output (UTXO)**.
+
+Only UTXO's can be used as input to an accepted transaction, and each of these UTXO's have conditions regarding proof of ownership to transact with the funds which are derived from your private key.
+
+#### Transaction Inputs
+Considered inbound payments that contribute to funding your wallet. Each transaction input has a condition, it will need to be converted to an output which contains the condition to prove ownership using your private key.
+
+A wallet must have funds to be able to produce valid transaction outputs.
+
+To craete a transaction output you need to have the sum of the input transactions which are equal to, or, greater than the value you are sending.
+
+![UTXO](./assets/utxo.png)
+
+### Blockchain Transaction Lifecycle
+
+[![Blockchain Transaction Lifecycle](./assets/tx_cycle.png)](http://www.youtube.com/watch?v=Emrprht-SqY "Blockchain Transaction Lifecycle")
+
+## Lesson 3 - Bitcoin Core Testnet
+
+### Bitcoin Core Overview
+
+> Bitcoin
+> Network of bitcoin users creating and validating transactions
+
+> Bitcoin Core
+> Implementation of bitcoin that encompasses all of the software behind bitcoin
+
+![Bitcoin Core](./assets/bitcoin_core.png)
+
+> Debug Console
+> Tool that allows you to interact with data on the bitcoin blockchain
+
+### Bitcoin Core - Networks
+There are three networks: Mainnet | Testnet | Regnet
+
+> Bitcoin Mainnet
+> Primary network where live transactions take place
+
+> Bitcoin Testnet
+> Alternaitve Bitcoin blockchain that provides a test environment for applications
+
+> Bitcoin Regnet (Regression Test Mode)
+> Alternative test network for testing bitcoin applications
+
+![Bitcoin Networks](./assets/btc_networks.png)
+
+### Mainnet vs Testnet
+
+Block creation stays the same, every 10 minutes since both of these networks rely on nodes for block creation.
+
+People have hoarded Testnet coins and have tried to sell them. This creates a shortage and makes it harder to test applications, so developers have wiped the coins to start anew. So far this has happened twice to we are on the third iteration of Testnet.
+
+![Mainnet vs Testnet](./assets/mainnet_testnet.png)
+
+#### Resources
+[Bitcoin Wiki Testnet](https://en.bitcoinwiki.org/wiki/Testnet)
+[Developer Test Application Examples](https://bitcoin.org/en/developer-examples#testing-applications)
+
+### Testnet vs Regression Testing
+![Testnet vs Regnet](./assets/testnet_regnet.png)
