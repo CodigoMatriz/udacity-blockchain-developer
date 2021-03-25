@@ -13,7 +13,9 @@
 
 ### Blockchain Framework
 
-![Blockcahin Framework](./assets/blockchain_framework.png)
+<div align="center">
+	<img src="./assets/blockchain_framework.png " width="700" />
+</div>
 
 ### Financial Transactions
 
@@ -89,7 +91,9 @@ A unique string of letters and numbers that represent a set of data, which can b
 
 Hash value acts as a unique identifier for the original data. Allows to easily identify data by referencing its hash value.
 
-![Hashing](./assets/hashing.png)
+<div align="center">
+	<img src="./assets/hashing.png" width="700" />
+</div>
 
 A unique value is given to each block on the blockchain to create a unique identifier for each block that exists in the chain.
 
@@ -112,15 +116,15 @@ Fundamental componenets of the blockchain.
 
 Without the blocks, which compartmentalize the transactions, it would create a massive list of transactions that would be difficult to work with or manage.
 
-<figure>
-<img src="./assets/transactions_list.png" align="center" />
-<figcaption align="center">Transaction list without blocks</figcaption>
-</figure>
+<div align="center">
+	Transaction list without blocks
+	<img src="./assets/transactions_list.png" width="700" />
+</div>
 
-<figure>
-<img src="./assets/transactions_blocks.png" align="center" />
-<figcaption align="center">Transaction list separated into blocks</figcaption>
-</figure>
+<div align="center">
+	Transaction list separated into blocks
+	<img src="./assets/transactions_blocks.png" width="700" />
+</div>
 
 With the transactions broken out into blocks, it makes it easier to manage, with transactions held in the *body of a block*
 
@@ -128,19 +132,23 @@ With the transactions broken out into blocks, it makes it easier to manage, with
 
 Additional information is stored in the block as well, this is at the _block header_ which details the structure of the data within
 
-![Transaction List](./assets/block_header.png)
+<img src="./assets/block_header.png" width="700" />
 
 ##### Previous Block's Hash
 hash of the block before the current one. Allows the blocks to be linked together by knowing what came before / after
 
-![Previous Block's Hash](./assets/block_previous_hash.png)
+<div align="center">
+	<img src="./assets/block_previous_hash.png" width="700" />
+</div>
 
 ---
 
 ##### Time
 when the block was created, which helps in avoidining double-spending and validates which block came first
 
-![Time](./assets/block_time.png)
+<div align="center">
+	<img src="./assets/block_time.png" width="700" />
+</div>
 
 ---
 
@@ -149,7 +157,9 @@ hash that represents every transaction inside the block, which is derived from p
 
 Each pair results in a hash which is hashed repeatedly until a single hash value is generated.
 
-![Merkle Root](./assets/block_merkle_root.png)
+<div align="center">
+	<img src="./assets/block_merkle_root.png" width="700" />
+</div>
 
 ---
 
@@ -160,7 +170,9 @@ When a hash is created for a block, a very specific value is required that start
 
 Requiring all the block data and the nonce to get the hash value, which the computer does over and over until the appropriate hash is found.
 
-![None](./assets/block_nonce.png)
+<div align="center">
+	<img src="./assets/block_nonce.png" width="700" />
+</div>
 
 ---
 
@@ -168,19 +180,25 @@ Requiring all the block data and the nonce to get the hash value, which the comp
 
 A block's difficulty is determined by the amound of zeros prepended to the hash More zeros increases the diffilculty while less does the reverse.
 
-![Block Diffilculty](./assets/block_difficulty.png)
+<div align="center">
+	<img src="./assets/block_difficulty.png" width="700" />
+</div>
 
 #### Block Size
 
 This is the amount of data it takes to the block fill up before a new one needs to be created. Block size affects all the blocks in the blockchain and is determined by the developer, thus requiring an update to the software to change the block size value.
 
-![Block Size](./assets/block_size.png)
+<div align="center">
+	<img src="./assets/block_size.png" width="700" />
+</div>
 
 #### Block Hash
 
 A unique digital fingerprint that is derived from the block's data being passed through a SHA256 algorithm. If any of the data changes within the block, a new hash would be derived, allowing to determine if the block's data was tampered.
 
-![Block Hash](./assets/block_hash.png)
+<div align="center">
+	<img src="./assets/block_hash.png" width="700" />
+</div>
 
 Tool: [Ander's | Block](https://andersbrownworth.com/blockchain/block)
 Exercise: [Practice Block](./exercises/block)
@@ -196,17 +214,23 @@ The place where data is stored; every other component is the system around the b
 
 The blockchain is constructed of two main things, blocks and hash values.
 
-![Blockchain](./assets/blockchain.png)
+<div align="center">
+	<img src="./assets/blockchain.png" width="700" />
+</div>
 
 #### Invalidation 
 If data is changed in a block, that block will be invalidated along with any blocks that succeed it and thus breaking the blockchain.
 
-![Blockchain Invalidation](./assets/blockchain_invalid_block.png)
+<div align="center">
+	<img src="./assets/blockchain_invalid_block.png" width="700" />
+</div>
 
 #### Genesis Block
 The first block in the blockchain is called the **genesis block**
 
-![Blockchain Invalidation](./assets/blockchain_genesis_block.png)
+<div align="center">
+	<img src="./assets/blockchain_genesis_block.png" width="700" />
+</div>
 
 Tool: [Ander's | Blockchain](https://andersbrownworth.com/blockchain/blockchain)
 
@@ -217,7 +241,9 @@ Tool: [Ander's | Blockchain](https://andersbrownworth.com/blockchain/blockchain)
 
 Allows users, known as a nodes, to send information directly among each other without a centralized service.
 
-![Peer-to-Peer](./assets/network_peer_peer.png)
+<div align="center">
+	<img src="./assets/network_peer_peer.png" width="700" />
+</div>
 
 > Distributed Network
 > A network that allows information to spread out across many users
@@ -226,7 +252,9 @@ With peer-to-peer allowing users to send information among each other, being dis
 
 #### Types
 
-![Network Types](./assets/network_types.png)
+<div align="center">
+	<img src="./assets/network_types.png" width="700" />
+</div>
 
 ##### Centralized
 Everything connects to a single central owner, which creates a single point of failure as well.
@@ -249,7 +277,9 @@ As the number of transactions being made exceed what the network can process a q
 
 Transactions are not instant, as they need to be confirmed by the network and are done so by specialized nodes in the network called miners. Miners pull from the mempool to validate transactions before they are added to the blockchain to keep consensus.
 
-![Miners](./assets/mempool_miners.png)
+<div align="center">
+	<img src="./assets/mempool_miners.png" width="700" />
+</div>
 
 Transactions in the mempool could be evicted due to:
 * expiration by timeout (14 days after entering)
@@ -294,7 +324,9 @@ Each node (miner) is involved in solving a problem to proof they've done require
 
 In response to putting in work via time and resources, each node (miner) is paid transaction fees directly from those making the transactions as well from the technology as a reward for mining the new block.
 
-![Proof of Work](./assets/proof_work_nodes.png)
+<div align="center">
+	<img src="./assets/proof_work_nodes.png" width="700" />
+</div>
 
 Miner's purpose is finding the nonce for the new block, which is the key to finding the blocks hash value. 
 
@@ -302,19 +334,25 @@ Miner's purpose is finding the nonce for the new block, which is the key to find
 
 In Bitcoin, the difficulty is adjusted automatically so that a block is generated every 10 minutes.
 
-![Bitcoin Difficulty](./assets/bitcoin_difficulty.png)
+<div align="center">
+	<img src="./assets/bitcoin_difficulty.png" width="700" />
+</div>
 
 ##### Potential Issues
 Extremely High-Energy Consumption
 
-![Bitcoin Energy Consumption](./assets/bitcoin_energy_consumption.png)
+<div align="center">
+	<img src="./assets/bitcoin_energy_consumption.png" width="700" />
+</div>
 
 Monopoly of miners leads to concern for Centralization
 
 Those with resources to acquire more equipment will have an unfair advantage.
 Mining pools/farms have helped in leading a monopoly of the miners that control a majority of the network and as they dedicate more nodes to the network they have more say in what blocks are considered valid thus leaning to a more centralized system than distributed.
 
-![Bitcoin Mining Pools](./assets/bitcoin_mining_pools.png)
+<div align="center">
+	<img src="./assets/bitcoin_mining_pools.png" width="700" />
+</div>
 
 #### Proof of Stake
 Focuses on giving votes to members, depending on how much stake they have in the success of the chain.
@@ -329,7 +367,9 @@ Purpose of the validators, known as stakeholders, validate which blocks make it 
 
 The greater the fraction of the total coins a validator owns, they have a higher chance to be picked to create the next block, as that emphasizes a higher stake.
 
-![Proof of Stake | How does it work?](./assets/proof_stake_work.png)
+<div align="center">
+	<img src="./assets/proof_stake_work.png" width="700" />
+</div>
 
 If a validator's block is added to the blockchain, they are awarded coins proportional to the amount of their stake.
 
@@ -338,7 +378,9 @@ If a validator's block is added to the blockchain, they are awarded coins propor
 
 Blockchains can fork, accidentally or by a malicious attempt to reverse a transaction. So with these multiple competing block options, couldn't a malicious validator stake into every block so they always profit?
 
-![Proof of Stake | How does it work?](./assets/proof_stake_issues.png)
+<div align="center">
+	<img src="./assets/proof_stake_issues.png" width="700" />
+</div>
 
 ##### Strategies
 
@@ -360,7 +402,9 @@ Tries to achieve consensus by assigning roles to nodes to help coordinate consen
 ##### How does it work?
 Does not users miners, instead has nodes that are split into ordinary nodes and concensus nodes.
 
-![DBFT | How does it work?](./assets/dbft_work.png)
+<div align="center">
+	<img src="./assets/dbft_work.png" width="700" />
+</div>
 
 Majority of nodes, are ordinary nodes, in the network that can transfer or exchange assets but do not participate in validating blocks.
 
@@ -370,7 +414,9 @@ Concensus nodes are able to validate blocks on the blockchain, acts as a represe
 
 In the neo blockhain, the chosen concensus node is referred to as the **speaker** while the rest of the concensus nodes are **delegates**. For the new block to be added to the chain proposed by the speaker, 2/3 of the delegates must approve the new block to be added to the blockchain. If the proposed block is denied, then a new speaker is chosen and the previous speaker becomes a delegate.
 
-![DBFT Speaker?](./assets/dbft_speaker.png)
+<div align="center">
+	<img src="./assets/dbft_speaker.png" width="700" />
+</div>
 
 Supposed to be much faster than proof-of-work and requires much less resources as there are not cryptographic puzzles to solve and is resistant to forking as there is only one version of truth.
 
@@ -428,7 +474,9 @@ Public keys can be shared without worry of the security of our private key, but 
 
 Bitcoin uses the Elliptic Curve Digital Signature Algorithm (ECDSA) to produce a public key from a private key.
 
-![ECDSA](./assets/identity_ecdsa.png)
+<div align="center">
+	<img src="./assets/identity_ecdsa.png" width="700" />
+</div>
 
 Now the wallet can use the private and public key to track transactions.
 
@@ -439,15 +487,21 @@ Sadly, even though we can share the public key safely it can still be traced bac
 
 A wallet address is created from the public key and in Bitcoins case it goes through two alogrithms, SHA256 and RIPEMD160.
 
-![Wallet Address](./assets/identity_wallet_address.png)
+<div align="center">
+	<img src="./assets/identity_wallet_address.png" width="700" />
+</div>
 
 Now that we have the wallet address we need to do one more thing to it for ease of sharing and useability by removing letters and numbers that look the same by passing it through a Base58Check.
 
-![Full-Scope Wallet Address](./assets/identity_wallet_address_finished.png)
+<div align="center">
+	<img src="./assets/identity_wallet_address_finished.png" width="700" />
+</div>
 
 ### Wallet Types
 
-![Wallet Types](./assets/wallet_types.png)
+<div align="center">
+	<img src="./assets/wallet_types.png" width="700" />
+</div>
 
 > Non-deterministic Wallet (Random Wallet)
 > A wallet where private keys are generated from random numbers
@@ -458,12 +512,14 @@ Now that we have the wallet address we need to do one more thing to it for ease 
 > Hierarchical Deterministic Wallet
 > An advanced type of deterministic wallet that contains keys derived in a tree structure
 
-![HD Wallet](./assets/hd_wallet.png)
+<div align="center">
+	<img src="./assets/hd_wallet.png" width="700" />
+</div>
 
 #### Non-Deterministic Wallet
 Buncha random keys generated.
 
-```text
+```
 Random number -> Private Key -> Public Key -> Wallet Address
 ```
 
@@ -474,12 +530,16 @@ Random number is generated to create a seed, which is then passed through a math
 
 The seed allows to import/export a wallet and allows for easy migration of the keys between different wallet platforms.
 
-![Sequential Determinisitc Wallet](./assets/sequential_deterministic_wallet.png)
+<div align="center">
+	<img src="./assets/sequential_deterministic_wallet.png" width="700" />
+</div>
 
 ##### Hietarchical Deterministic Wallet
 Fanciest type. Allows to create sub-private and sub-public keys to be able to branch off portions of the wallet and jail access to those areas.
 
-![HD Wallet](./assets/hd_wallet.png)
+<div align="center">
+	<img src="./assets/hd_wallet.png" width="700" />
+</div>
 
 ### Private Keys
 
@@ -488,7 +548,9 @@ Fanciest type. Allows to create sub-private and sub-public keys to be able to br
 
 It can be represented in different formats but they all correspond to the 256-but number.
 
-![Private Key Formats](./assets/private_key_formats.png)
+<div align="center">
+	<img src="./assets/private_key_formats.png" width="700" />
+</div>
 
 So how is every private key unique?
 The key is generated between 2 and 2^256, that is one large number. In perspective, there is 2^63 (7 quintillion) grains of sand on earth.
@@ -518,11 +580,18 @@ A wallet must have funds to be able to produce valid transaction outputs.
 
 To craete a transaction output you need to have the sum of the input transactions which are equal to, or, greater than the value you are sending.
 
-![UTXO](./assets/utxo.png)
+<div align="center">
+	<img src="./assets/utxo.png" width="700" />
+</div>
 
 ### Blockchain Transaction Lifecycle
 
-[![Blockchain Transaction Lifecycle](./assets/tx_cycle.png)](http://www.youtube.com/watch?v=Emrprht-SqY "Blockchain Transaction Lifecycle")
+<div align="center">
+	<a href="http://www.youtube.com/watch?v=Emrprht-SqY">
+		<img src="./assets/tx_cycle.png" width="700" />
+	</a><br />
+	<small>(click to view video)</small>
+</div>
 
 ## Lesson 3 - Bitcoin Core Testnet
 
@@ -534,7 +603,9 @@ To craete a transaction output you need to have the sum of the input transaction
 > Bitcoin Core
 > Implementation of bitcoin that encompasses all of the software behind bitcoin
 
-![Bitcoin Core](./assets/bitcoin_core.png)
+<div align="center">
+	<img src="./assets/bitcoin_core.png" width="700" />
+</div>
 
 > Debug Console
 > Tool that allows you to interact with data on the bitcoin blockchain
@@ -551,7 +622,9 @@ There are three networks: Mainnet | Testnet | Regnet
 > Bitcoin Regnet (Regression Test Mode)
 > Alternative test network for testing bitcoin applications
 
-![Bitcoin Networks](./assets/btc_networks.png)
+<div align="center">
+	<img src="./assets/btc_networks.png" width="700" />
+</div>
 
 ### Mainnet vs Testnet
 
@@ -559,14 +632,19 @@ Block creation stays the same, every 10 minutes since both of these networks rel
 
 People have hoarded Testnet coins and have tried to sell them. This creates a shortage and makes it harder to test applications, so developers have wiped the coins to start anew. So far this has happened twice to we are on the third iteration of Testnet.
 
-![Mainnet vs Testnet](./assets/mainnet_testnet.png)
+<div align="center">
+	<img src="./assets/mainnet_testnet.png" width="700" />
+</div>
 
 #### Resources
 [Bitcoin Wiki Testnet](https://en.bitcoinwiki.org/wiki/Testnet)
 [Developer Test Application Examples](https://bitcoin.org/en/developer-examples#testing-applications)
 
 ### Testnet vs Regression Testing
-![Testnet vs Regnet](./assets/testnet_regnet.png)
+
+<div align="center">
+	<img src="./assets/testnet_regnet.png" width="700" />
+</div>
 
 ## Lesson 4 - Blockchain Data
 
@@ -584,7 +662,9 @@ People have hoarded Testnet coins and have tried to sell them. This creates a sh
     * Inputs
     * Outputs
 
-![Block Model](./assets/block_model.png)
+<div align="center">
+	<img src="./assets/block_model.png" width="700" />
+</div>
 
 ### Transactions - Inputs and Outputs
 
@@ -599,7 +679,9 @@ There is no such thing as a stored balance for an account, it's UTXO records on 
 
 You send Jessica 2 BTC. The wallet then scans the blockchain to find UTXO and gathers the sum of them. In this instance finds two of them, one fot 1.25 BTC and another for 1.75 BTC for a total of 3 BTC for the input of the transaction. An input is created for Transaction A and another for Transaction B, from there two outputs are created.  One is the UTXO for 2.0 BTC we sent to Jessican and the other UTXO is our change of 1.0 BTC.
 
-![Inputs and Outputs](./assets/transactions_inputs_outputs.png)
+<div align="center">
+	<img src="./assets/transactions_inputs_outputs.png" width="700" />
+</div>
 
 If there is a minors; transaction fee, it's the difference between the inputs minus the outputs.
 
@@ -609,14 +691,18 @@ If there is a minors; transaction fee, it's the difference between the inputs mi
 
 On the blockchain, transactions are stored in a double hash form; the raw transaction is passed through SHA256, twice.
 
-![](./assets/transaction_data_model.png)
+<div align="center">
+	<img src="./assets/transaction_data_model.png" width="700" />
+</div>
 
-<center>
-	Animation showcasing the different parts to the transaction data model
-</center>
-<video width="770" height="430" >
-  <source src="./assets/transaction_data_model.mp4" type="video/mp4">
-</video>
+<div align="center">
+	<p>Animation showcasing the different parts to the transaction data model</p>
+	<a href="./assets/transaction_data_model.mp4">
+		<img src="./assets/transaction_data_model_poster.png" width="700" />
+	</a>
+	<p><small>(click to view)</small></p>
+</div>
+
 
 Part of what is contained in the Input and Output info are scripts on how a transaction was signed.
 
@@ -624,7 +710,9 @@ The input info contains the unlocking script while the output info contains the 
 
 Review of what the block contains
 
-![Block Data](./assets/block_structure.gif)
+<div align="center">
+	<img src="./assets/block_structure.png" width="700" />
+</div>
 
 ### Bitcoin Scripts
 
@@ -633,7 +721,9 @@ Review of what the block contains
 
 Bitcoin scripting language is called, Script.
 
-![Bitcoin Script](./assets/bitcoin_script.png)
+<div align="center">
+	<img src="./assets/bitcoin_script.png" width="700" />
+</div>
 
 Unlocking and Locking Scripts
 * What are their purposes?
@@ -653,7 +743,9 @@ A locking script places a lock on the output, specifying the conditions that mus
 
 Unlocking script cant be found under `scriptSig` while the locking script can be found under `scriptPubKey` in the raw transaction below:
 
-![Bitcoin Scripts](./assets/bitcoin_scripts.png)
+<div align="center">
+	<img src="./assets/bitcoin_scripts.png" width="700" />
+</div>
 
 -   **Version** - All transactions include information about the Bitcoin Version number so we know which rules this transaction follows.
 -   **Input Count** - Which is how many inputs were used for this transaction
@@ -680,7 +772,9 @@ Unlocking script cant be found under `scriptSig` while the locking script can be
 
 Script is a stack based language, read left to right, and opcodes allow us to interact with data on the stack. It can push (add) or pop (remove) items from the stack among many other things. Opcodes are prefix by `OP_`.
 
-![Script Example](./assets/script_example.gif)
+<div align="center">
+	<img src="./assets/script_example.gif" width="700" />
+</div>
 
 #### Resources
 [List of Bitcoin opcodes](https://en.bitcoin.it/wiki/Script)
@@ -688,6 +782,7 @@ Script is a stack based language, read left to right, and opcodes allow us to in
 ### Attributes of Script
 
 **Not Turing Complete**
+
 * No loops or complex flow control, other than conditional flow control
 * Completely deterministic
 * Provides simplicity and security
