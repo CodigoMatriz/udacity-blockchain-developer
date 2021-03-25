@@ -567,3 +567,132 @@ People have hoarded Testnet coins and have tried to sell them. This creates a sh
 
 ### Testnet vs Regression Testing
 ![Testnet vs Regnet](./assets/testnet_regnet.png)
+
+## Lesson 4 - Blockchain Data
+
+### Blockchain Data Models Overview
+
+**Block Header**
+
+* **Previous Block’s Hash**: The hash value for the block that comes directly before a given block in the chain. This is what links blocks in the blockchain together
+* **Time**: The time the block was created is also held in the header
+* **Merkle Root**: The merkle root is a hash that represents every transaction included inside the block. To get the merkle root, pairs of transactions within a block are repeatedly hashed together. Each pair results in a single hash. Then the hash of 2 pairs of transactions are again hashed together, over and over again until you are left with a single hash value. Given that final hash value, known as the merkle root, you can now use the hash to search the original transactions or hash values that created them. This searching allows you to find the original transactions that made up the block when starting from this single hash value.
+* **Nonce**: A nonce (stands for “number only used once") is a number used in bitcoin mining. The blockchain miners are solving for the nonce that when added to a hashed block, and those 2 values are rehashed, will solve the mining puzzle.
+
+**Block Body**
+* Transactions
+    * Inputs
+    * Outputs
+
+![Block Model](./assets/block_model.png)
+
+### Transactions - Inputs and Outputs
+
+Transactions are the fundamentals of which blocks of data are built from, they are the data structure that encodes a transfer of value from a source of funds called an "input" to a destination called an "output".
+
+Inputs in one transaction are unspect outputs from another transaction. All inputs reference back to an output, unspent outputs is short-handed to UTXO.
+
+> Transaction
+> A data structure that encodes a transfer of value from a source of funds called an "input" to a destination called an "output"
+
+There is no such thing as a stored balance for an account, it's UTXO records on the blockchain tied to a specific owner.
+
+You send Jessica 2 BTC. The wallet then scans the blockchain to find UTXO and gathers the sum of them. In this instance finds two of them, one fot 1.25 BTC and another for 1.75 BTC for a total of 3 BTC for the input of the transaction. An input is created for Transaction A and another for Transaction B, from there two outputs are created.  One is the UTXO for 2.0 BTC we sent to Jessican and the other UTXO is our change of 1.0 BTC.
+
+![Inputs and Outputs](./assets/transactions_inputs_outputs.png)
+
+If there is a minors; transaction fee, it's the difference between the inputs minus the outputs.
+
+**Sum(Inputs) - Sum(Outputs) = Transaction Fees**
+
+### Transaction Data Models
+
+On the blockchain, transactions are stored in a double hash form; the raw transaction is passed through SHA256, twice.
+
+![](./assets/transaction_data_model.png)
+
+<center>
+	Animation showcasing the different parts to the transaction data model
+</center>
+<video width="770" height="430" >
+  <source src="./assets/transaction_data_model.mp4" type="video/mp4">
+</video>
+
+Part of what is contained in the Input and Output info are scripts on how a transaction was signed.
+
+The input info contains the unlocking script while the output info contains the locking script. If the transaction is valid, the unlocking script will have the requirements that unlocks the unlocking script.
+
+Review of what the block contains
+
+![Block Data](./assets/block_structure.gif)
+
+### Bitcoin Scripts
+
+> Script
+> A list of instructions recorded in each transaction that when executed determines if the transaction is valid and the bitcoins can be spent
+
+Bitcoin scripting language is called, Script.
+
+![Bitcoin Script](./assets/bitcoin_script.png)
+
+Unlocking and Locking Scripts
+* What are their purposes?
+* How do they work?
+* Where to find them?
+
+**Inputs contain unlocking script**
+**Outputs contain locking scripts*
+
+The scripts are small programs in each transaction that execute to determine if the transaction is valid. If valid, the transaction is signed.
+
+The unlocking script contains the "puzzle" piece to solve the locking script to evaluate it to true and allow the output to be spent.
+
+The unlocking script of the input interacts with the locking script of an output from a previous transaction. 
+
+A locking script places a lock on the output, specifying the conditions that must be met in order to spend the outputs in the future.
+
+Unlocking script cant be found under `scriptSig` while the locking script can be found under `scriptPubKey` in the raw transaction below:
+
+![Bitcoin Scripts](./assets/bitcoin_scripts.png)
+
+-   **Version** - All transactions include information about the Bitcoin Version number so we know which rules this transaction follows.
+-   **Input Count** - Which is how many inputs were used for this transaction
+
+**Data stored in Input information:**
+
+-   **Previous output hash** - All inputs reference back to an output (UTXO). This points back to the transaction containing the  UTXO that will be spent in this input. The hash value of this UTXO is  saved in a reverse order here.
+-   **Previous output index** - The transaction may have more than one UTXO which are referenced by their index number. The first index is 0.
+-   **Unlocking Script Size** - This is the size of the Unlocking Script in bytes. 
+-   **Unlocking Script** - This is the hash of the Unlocking Script that fulfills the conditions of the UTXO Locking Script. 
+-   **Sequence Number** - This is a deprecated feature of bitcoin, currently set to `ffffffff` by default. 
+
+**Output Count** - which tells us how many outputs were produced from this transaction.
+
+**Data stored in Output Information:**
+
+-   **Amount** - The amount of Bitcoin outputted in Satoshis (the smallest bitcoin unit). 10^8 Satoshis = 1 Bitcoin.
+-   **Locking Script Size** - This is the size of the Locking Script in bytes. 
+-   **Locking Script**  - This is the hash of the Locking Script that specifies the conditions that must be met to spend this output. 
+
+**Locktime** - The locktime field indicates the earliest time or the earliest block a  transaction can be added to the  blockchain. If the locktime is non-zero  and less than 500 million, it is  interpreted as a block height and miners have to wait until that block  height is reached before attempting to add it to a block. If the  locktime is above 500 million, it is read as a UNIX timestamp which  means the number of seconds since the date  January 1st 1970.  It is  usually 0 which means confirm as soon as possible. 
+
+### Script Opcodes
+
+Script is a stack based language, read left to right, and opcodes allow us to interact with data on the stack. It can push (add) or pop (remove) items from the stack among many other things. Opcodes are prefix by `OP_`.
+
+![Script Example](./assets/script_example.gif)
+
+#### Resources
+[List of Bitcoin opcodes](https://en.bitcoin.it/wiki/Script)
+
+### Attributes of Script
+
+**Not Turing Complete**
+* No loops or complex flow control, other than conditional flow control
+* Completely deterministic
+* Provides simplicity and security
+
+**Stateless Verification**
+* No state saved prior to or after the script executes
+* Scripts is self-contained
+* Provides predicatability no matter where script is executed
