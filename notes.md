@@ -132,7 +132,9 @@ With the transactions broken out into blocks, it makes it easier to manage, with
 
 Additional information is stored in the block as well, this is at the _block header_ which details the structure of the data within
 
-<img src="./assets/block_header.png" width="700" />
+<div align="center">
+	<img src="./assets/block_header.png" width="700" />
+</div>
 
 ##### Previous Block's Hash
 hash of the block before the current one. Allows the blocks to be linked together by knowing what came before / after
