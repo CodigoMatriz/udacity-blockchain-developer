@@ -117,12 +117,12 @@ Fundamental componenets of the blockchain.
 Without the blocks, which compartmentalize the transactions, it would create a massive list of transactions that would be difficult to work with or manage.
 
 <div align="center">
-	Transaction list without blocks
+	<p>Transaction list without blocks</p>
 	<img src="./assets/transactions_list.png" width="700" />
 </div>
 
 <div align="center">
-	Transaction list separated into blocks
+	<p>Transaction list separated into blocks</p>
 	<img src="./assets/transactions_blocks.png" width="700" />
 </div>
 
@@ -587,7 +587,7 @@ To craete a transaction output you need to have the sum of the input transaction
 ### Blockchain Transaction Lifecycle
 
 <div align="center">
-	<a href="http://www.youtube.com/watch?v=Emrprht-SqY">
+	<a href="http://www.youtube.com/watch?v=Emrprht-SqY" target="_blank">
 		<img src="./assets/tx_cycle.png" width="700" />
 	</a><br />
 	<small>(click to view video)</small>
@@ -697,7 +697,7 @@ On the blockchain, transactions are stored in a double hash form; the raw transa
 
 <div align="center">
 	<p>Animation showcasing the different parts to the transaction data model</p>
-	<a href="./assets/transaction_data_model.mp4">
+	<a href="./assets/transaction_data_model.mp4"  target="_blank">
 		<img src="./assets/transaction_data_model_poster.png" width="700" />
 	</a>
 	<p><small>(click to view)</small></p>
@@ -711,7 +711,7 @@ The input info contains the unlocking script while the output info contains the 
 Review of what the block contains
 
 <div align="center">
-	<img src="./assets/block_structure.png" width="700" />
+	<img src="./assets/block_structure.gif" width="700" />
 </div>
 
 ### Bitcoin Scripts
