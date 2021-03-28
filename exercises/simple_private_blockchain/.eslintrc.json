@@ -1,0 +1,38 @@
+{
+    "extends": [
+        "airbnb",
+        "plugin:jsdoc/recommended",
+        "plugin:prettier/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings"
+    ],
+
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+ 
+    "parserOptions": {
+    	"ecmaVersion": 8,
+    	"sourceType": "module",
+    	"ecmaFeatures": {
+      	    "jsx": true
+    	}
+     },
+     
+    "ignorePatterns": "['/node_modules/**', '/build/**']",
+
+    "rules": {
+      	"jsx-a11y/href-no-hash": ["off"],
+      	"react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+	"prettier/prettier": ["error"],
+    	"max-classes-per-file": ["error", 3]
+    },
+
+    "settings": {
+	"react": {
+	    "version": "latest"
+	}
+    }
+}

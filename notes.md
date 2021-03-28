@@ -793,3 +793,88 @@ Script is a stack based language, read left to right, and opcodes allow us to in
 * No state saved prior to or after the script executes
 * Scripts is self-contained
 * Provides predicatability no matter where script is executed
+
+### Embedding Data in Bitcoin Core
+
+Members of the community figured out it was possible to place information in a transaction scriptSig value that didn't alter the end result of the running script. Users took data, hashed it, then embedded the hash into the output.
+
+The above led to transactions with unspendable UTXO, because the UTXO has locking scripts that could not be unlocked. Since these UTXO could never be spent of removed, the nodes would be forced to carry them forever.
+
+Bitcoin core developers introduced the opcode, OP_RETURN. Allowing 40 bytes to be used in an unspendable transaction, bypassing the need t store them in the UTXO set.
+
+<div align="center">
+	<img src="./assets/op_return.png" width="700" />
+</div>
+
+## Lesson 5: Private Blockchains
+
+### Public and Private Blockchains
+
+<div align="center">
+	<img src="./assets/public_private_blockchains.png" width="700" />
+</div>
+
+**Public Blockchains** 
+* Are open and permissionless
+* Cant be maintained by anyone with sufficient computing power to do so
+* Full transparency
+* Drawbacks in scalability and regulatory compliance
+
+Bitcoin Core transactions on the public chain are time-restricted with new blocks being added to the chain about every 10 minutes. The resitriction improves security and controls supply but impacts the scalability of transactions the platform can process at a time.
+
+Public chain lacks centralized control, and when new laws are created by local governments, there is limited ability to adopt those laws.
+
+**Private Blockchains** 
+* Are closed and permissioned and typically operate under centralized control
+* Benefit in efficiency from scalability and regulatory compliance
+* Have low transparency
+* The drawback is the vulnerability of its network, where bad actors can manipulate its dataset due to the vulnerabiliies of centrlized governance
+* Rely on limited private networks to maintain the integrity of the blockchain itself
+
+### Public and Private Blockchain Interaction
+
+> Cross Chain Functionality
+> Allows a series of protocols that work in harmony to deliver decentralized applications
+
+## Lesson 6: Digital Assets on Blockchain
+
+### Digital Assets
+
+> Digital Asset
+> Digitally stored content or online account owned by an individual
+
+### Encode and Decode Basics
+
+The process of producing and interpreting information. Used across many fields of study; computer science focuses on facilitating the sending and receiving of data  by translating a message between human-readable data and raw data.
+
+> Encode
+> Process of putting a sequence of characters into a specialized format for efficient transmission or storage
+
+> Decode
+> Takes encoded, raw, unreadable files and converts them back into human readable format
+
+> ASCII
+> American Standard Code for Information Interchange
+
+> Hexadecimal
+> More concise and human readable representation of binary
+
+> Base64
+> Encoding scheme meant to represent data as numbers in a string format
+
+#### Resources
+
+**ASCII**  
+-   [How numbers are encoded as character is ASCII](http://www.asciitable.com/)
+-   [Text to ASCII Converter](http://www.unit-conversion.info/texttools/ascii/)
+-   [ASCII Wiki](https://en.wikipedia.org/wiki/ASCII)
+
+**Hexadecimal**
+-   [How do HEX color codes work?](https://www.youtube.com/watch?v=c56x1aj2CPA)
+-   [Text to Hex Converter](http://www.convertstring.com/EncodeDecode/HexEncode)
+-   [Hexadecimal Wiki](https://en.wikipedia.org/wiki/Hexadecimal)
+
+**Base64**
+-   [Base64 Encoding](https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding)
+-   [Text to Base64 Converter](https://www.base64encode.org/)
+-   [Base64 Wiki](https://en.wikipedia.org/wiki/Base64)
