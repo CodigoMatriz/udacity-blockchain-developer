@@ -878,3 +878,126 @@ The process of producing and interpreting information. Used across many fields o
 -   [Base64 Encoding](https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding)
 -   [Text to Base64 Converter](https://www.base64encode.org/)
 -   [Base64 Wiki](https://en.wikipedia.org/wiki/Base64)
+
+### Proof of Existence
+
+> Verify Digital Assets
+> Check the integrity of the digital asset to confirm that it contains the "correct" sequence of bytes and has not been wrongfully accessed or altered
+
+Integrity is only about making sure that a given file is exactly the same as it was at its source, it's based on it's trustworthiness just that it was not altered.
+
+> Proof of Existence
+> A concept (and a service) that publicly proves and authenticates any digital asset on the blockchain by verifying its hash
+
+Think of it as a blockchain notary service. In traditional notary, we take a document to an authorized person who notarizes or signs and stamps it, thus claiming they verified the document. 
+
+Proof of existence verifies the authenticity of documents on the blockchain. When information about a digital asset is stored on the blockchain, only the hash its saved, not the document itself. This keeps the contents private of the digital asset, and the hash is linked to the time the document was submitted.
+
+#### Why Do We Need POE
+
+Before trying to use this for ourselves, here’s a few quick ideas over why you might even want to to do this in the first place.
+
+**Helps you demonstrate data ownership without revealing actual data.** 
+
+-   This is useful for things like copyrighted material or patents.
+
+**Checks for the integrity of your digital asset. Any proof of existence will recognize your document FOREVER.** 
+
+-   Even the slightest difference will be recognized allowing you to be sure your asset hasn’t changed.
+
+**Provides document Time stamping.** You can use this to prove certain information existed at a certain time. 
+
+-   This can be useful in cases where you want to prove who was the original owner of the document.
+
+**Certifies the existence of the document without the need for a central authority.** 
+
+-   Similar to many blockchain concepts this decentralized proof can’t be erased or modified by anyone.
+
+#### POE Algorithms
+
+There are a different of algorithms to demonstrate Proof of Existence. The two we have chosen to focus on here are SHA256 and MD5.
+
+They both serve the same purpose. They’re a way to hash a digital asset so it can be embedded in a transaction in the blockchain. This allows people to verify that a document existed at a certain point in time.
+SHA256
+
+This is an algorithm we’ve seen already in several different parts of the Bitcoin network. It’s used in mining as part of the proof of work algorithm.
+
+It’s also used to create secured bitcoin addresses.
+
+SHA256 stands for Secure Hash Algorithm. It is a one-way hashing function that takes in any piece of data and produces a unique hash.
+
+This is the algorithm POEX uses to secure their digital documents.
+MD5
+
+Next, the MD5 algorithm is a hash function that takes in a String input and produces a 128-bit hash value. This value is usually shown as a 32-character hexadecimal number that humans can read.
+Goals of POE Algorithms
+
+While each method does things a bit differently, the important thing to remember is their purpose.
+
+They hash digital assets to hide the actual content. Once the hashed data is embedded in a transaction in the blockchain, the existence of that transaction in the blockchain proves that the document existed at the time the transaction got included into a block.
+
+### Securing Assets Using a Digital Identity
+
+> Secure an Asset
+> Protect the resource (asset) from wrongful access or alteration
+
+<div align="center">
+	<img src="./assets/secure_digital_asset.png" width="700" />
+</div>
+
+### Web Service with Blockchain
+
+<div align="center">
+	<img src="./assets/web_services_yes.png" width="700" />
+</div>
+
+<div align="center">
+	<img src="./assets/web_services_no.png" width="700" />
+</div>
+
+#### Do you really need a blockchain?
+
+In addition to the questions Jessica covered, here are some helpful  questions to help determine if you really need a blockchain. These  questions were originally put together by [Viant](https://viant.io/), a [ConsenSys incubated company](https://new.consensys.net/), that built an asset and domain agnostic blockchain-based supply chain platform [TraSeable Solutions](https://traseable.com/).
+
+##### Problem of Value Identification
+
+1.  Is there a need to **share information, credentials or value** with others?
+2.  Is **trust** a critical requirement to the process?
+3.  Do you need to **prove** to others you are **transacting/reporting** accurately?
+4.  Is there **potential to monetize** the data or digital asset in the value chain?
+5.  Who **owns** the **problem**? Individual or industry wide challenges?
+
+##### Stakeholders Buy In
+
+1.  Is there a **network** of stakeholders (i.e. more than 2)?
+2.  Is there a **dependency on others** for information?
+3.  Does **more than one participant** need to **update** the data?
+4.  Is there **scope to open up the ecosystem to ancillary parties** in the future?
+5.  Are you **working with other industry players** on any activities?
+
+##### Technical Considerations
+
+1.  Is there any ongoing need or future requirements for **high data throughput**?
+2.  Do you **rely or use public data sources** to make decisions?
+3.  Do you need to **store a particularly rich/complex data structure**?
+4.  Do you need to **digitize assets** in your value chain?
+5.  Do you **need transaction privacy**? Do you need **anonymity**?
+
+### Blockchain Generations
+
+**BitCoin = Blockchain 1.0**
+**Ethereum = Blockchain 2.0**
+
+Ethereum, second generation blockchain, introduced smart contracts. Opens up the opportunity to work with digital assets on the blockchain.
+
+Bitcoin along with simple alternative coins liike Litecoin and Monero, are part of blockchain 1.0, focusing on moving value, maintaining a ledger and creating ideal payment systems.
+
+Blockchain 2.0 builds on the concept of recording transactions on the blockchain. Added the ability to program and use logic associated with data and the code is used to create what is referred to as smart contracts.
+
+Ethereum led the smart contract idea but were joined by others such as Ethereum Classic, NEO and Quantum.
+
+Smart contracts allow for customizable transactions and engineers can use this functionality to fit the needs of whomever is dealing with said transactions. Can be exchanging money, property, shares or anything of value.
+
+Think of smart contracts as a legal contract that runs on code, and an event, triggers the contract to execute the code that is within it. The addition of these smart contracts allow developers to create projects on top of the blockchain platform and launch blockchain-based businesses.
+
+Allows to develop new types of applications known as decentralized apps.
