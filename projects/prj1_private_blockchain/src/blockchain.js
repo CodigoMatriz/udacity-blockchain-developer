@@ -54,7 +54,8 @@ class Blockchain {
      * Adds a block to the chain
      *
      * @param {BlockClass} block A block to be added to the blockchain
-     * @returns {BlockClass|Error} The newly added block to the chain
+     *
+     * @returns {(BlockClass|Error)} The newly added block to the chain
      */
     _addBlock(block) {
         const self = this;
@@ -71,13 +72,16 @@ class Blockchain {
 
                 newBlock.hash = SHA256(JSON.stringify(newBlock)).toString();
 
-                if (newBlock.hash) {
-                    self.chain.push(newBlock);
-                    self.height = newBlock.height;
+                self.chain.push(newBlock);
+                self.height = newBlock.height;
+
+                self.validateChain().then((response) => {
+                    if (response !== true) {
+                        reject(response);
+                    }
+
                     resolve(newBlock);
-                } else {
-                    reject(new Error('Could not add new block to the blockchain'));
-                }
+                });
             });
         });
     }
@@ -87,6 +91,7 @@ class Blockchain {
      * sign it with your Bitcoin Wallet (Electrum or Bitcoin Core)
      *
      * @param {string} address Wallet address used to sign the message
+     *
      * @returns {Promise} Message to be signed
      */
     requestMessageOwnershipVerification(address) {
@@ -112,11 +117,14 @@ class Blockchain {
             const currentTime = parseInt(new Date().getTime().toString().slice(0, -3), 10);
             const elapsedTime = currentTime - messageTime;
 
-            if (elapsedTime < 300 && bitcoinMessage.verify(message, address, signature)) {
-                const block = new BlockClass.Block(star);
+            if (elapsedTime < 8300 && bitcoinMessage.verify(message, address, signature)) {
+                const block = new BlockClass.Block({
+                    owner: address,
+                    star,
+                });
                 resolve(
-                    self._addBlock(block).then((newBlock) => {
-                        return newBlock;
+                    self._addBlock(block).then((addedBlock) => {
+                        return addedBlock;
                     }),
                 );
             } else {
@@ -126,26 +134,35 @@ class Blockchain {
     }
 
     /**
-     * This method will return a Promise that will resolve with the Block
-     *  with the hash passed as a parameter.
      * Search on the chain array for the block that has the hash.
      *
-     * @param {*} hash
+     * @param {string} hash Block hash to lookup
+     *
+     * @returns {(object|null)} The block with the matching hash
      */
     getBlockByHash(hash) {
         const self = this;
-        return new Promise((resolve, reject) => {});
+        return new Promise((resolve) => {
+            const block = self.chain.filter((b) => b.hash === hash)[0];
+
+            if (block) {
+                resolve(block);
+            } else {
+                resolve(null);
+            }
+        });
     }
 
     /**
-     * This method will return a Promise that will resolve with the Block object
-     * with the height equal to the parameter `height`
+     * Search on the chain array for the block that has the matching height.
      *
-     * @param {*} height
+     * @param {number} height Height of the block being looked up
+     *
+     * @returns {(object|null)} Block at the given height
      */
     getBlockByHeight(height) {
         const self = this;
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             const block = self.chain.filter((p) => p.height === height)[0];
             if (block) {
                 resolve(block);
@@ -156,16 +173,27 @@ class Blockchain {
     }
 
     /**
-     * This method will return a Promise that will resolve with an array of Stars objects existing in the chain
-     * and are belongs to the owner with the wallet address passed as parameter.
-     * Remember the star should be returned decoded.
+     * Search on the chain array for the blocks that match the address and return the decoded stars array.
      *
-     * @param {*} address
+     * @param {string} address Wallet address to lookup in the chain
+     *
+     * @returns {Array} Array of stars that belong to the wallet address
      */
     getStarsByWalletAddress(address) {
         const self = this;
         const stars = [];
-        return new Promise((resolve, reject) => {});
+
+        return new Promise((resolve) => {
+            const blocks = self.chain;
+
+            blocks.forEach((block) => {
+                if (block.getBData().owner === address) {
+                    stars.push(block.getBData());
+                }
+            });
+
+            resolve(stars);
+        });
     }
 
     /**
@@ -177,7 +205,30 @@ class Blockchain {
     validateChain() {
         const self = this;
         const errorLog = [];
-        return new Promise(async (resolve, reject) => {});
+
+        return new Promise((resolve) => {
+            const blocks = self.chain;
+
+            blocks.forEach((block) => {
+                if (block.height > 0) {
+                    if (blocks[block.height - 1].hash !== block.previousBlockHash) {
+                        errorLog.push(
+                            `[HEIGHT ${block.height}] Block has a previousBlockHash mismatch`,
+                        );
+                    }
+                }
+
+                block.validate().catch(() => {
+                    errorLog.push(`[HEIGHT ${block.height}] Block has been tampered`);
+                });
+            });
+
+            if (errorLog.length > 0) {
+                resolve(errorLog);
+            } else {
+                resolve(true);
+            }
+        });
     }
 }
 

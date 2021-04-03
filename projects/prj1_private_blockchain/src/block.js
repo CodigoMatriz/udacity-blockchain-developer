@@ -30,12 +30,14 @@ class Block {
         const self = this;
         return new Promise((resolve, reject) => {
             const blockHash = self.hash;
-            const calculatedBlockHash = SHA256(JSON.stringify(this)).toString();
+            const blockToHash = { ...this, hash: null };
+
+            const calculatedBlockHash = SHA256(JSON.stringify(blockToHash)).toString();
 
             if (blockHash === calculatedBlockHash) {
                 resolve(true);
             } else {
-                reject(new Error(false));
+                reject(new Error(`Block hash mismatch at block height ${this.height}`));
             }
         });
     }
