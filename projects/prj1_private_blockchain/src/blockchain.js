@@ -117,7 +117,7 @@ class Blockchain {
             const currentTime = parseInt(new Date().getTime().toString().slice(0, -3), 10);
             const elapsedTime = currentTime - messageTime;
 
-            if (elapsedTime < 8300 && bitcoinMessage.verify(message, address, signature)) {
+            if (elapsedTime < 300 && bitcoinMessage.verify(message, address, signature)) {
                 const block = new BlockClass.Block({
                     owner: address,
                     star,
