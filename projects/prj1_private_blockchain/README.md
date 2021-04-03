@@ -2,6 +2,7 @@
 <h2>Project Specification</h2>
 <h3>Create Your Own Private Blockchain</h3>
 </div>
+
 **Complete unfinished block.js implementation**
 
 | Criteria                                                     | Meets Specifications                                         |
@@ -28,7 +29,40 @@
 
 ---
 
+### Bitcoin Wallet Address
+1DMmZjwTM17NYNtSwUq1LGfdm3MHsRDGAv
+
+---
+
 <div align="center">
-<h3>Screenshots</h3>
-<img src="./screenshots/block_by_height_genesis.png" width="640" />
+    <h3>Screenshots</h3>
+    <img src="./screenshots/block_by_height_genesis.png" width="720" />
+    <br />
+    <small>Genesis Block via Block Height Endpoint</small>
+    <br /><br />
+    <img src="./screenshots/block_by_hash.png" width="720" />
+    <br />
+    <small>Block by Hash Endpoint</small>
+    <br /><br />
+    <img src="./screenshots/stars_by_wallet_address.png" width="720" />
+    <br />
+    <small>Stars to Wallet Address Endpoint</small>
+    <br /><br />
+    <img src="./screenshots/blockchain_validation.png" width="720" />
+    <br />
+    <small>Blockchain Validation Endpoint</small>
+    <br /><br />
+    <img src="./screenshots/request_validation.png" width="720" />
+    <br />
+    <small>Request Validation Endpoint</small>
+    <br /><br />
+    <img src="./screenshots/message_signing.png" width="720" />
+    <br />
+    <small>Signing the Message</small>
+    <br /><br />
+    <img src="./screenshots/submit_star.png" width="720" />
+    <br />
+    <small>Submit Star Endpoint</small>
+    <br /><br />
 </div>
+
