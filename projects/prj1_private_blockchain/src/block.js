@@ -30,7 +30,11 @@ class Block {
         const self = this;
         return new Promise((resolve, reject) => {
             const blockHash = self.hash;
-            const blockToHash = { ...this, hash: null };
+            const blockToHash = { ...self, hash: null };
+
+            // Don't know if this is needed as the spread
+            // operator above is an immutable remove
+            self.hash = blockHash;
 
             const calculatedBlockHash = SHA256(JSON.stringify(blockToHash)).toString();
 
@@ -49,6 +53,10 @@ class Block {
      * */
     getBData() {
         const encodedBlockBody = this.body;
+
+        // Another way to decode this would be
+        // new Buffer.from(encodedBlockBody, 'hex')
+        // as the exercise included hex2ascii library I used that instead
         const decodedBlockBodyJson = hex2ascii(encodedBlockBody);
         const blockBody = JSON.parse(decodedBlockBodyJson);
 
