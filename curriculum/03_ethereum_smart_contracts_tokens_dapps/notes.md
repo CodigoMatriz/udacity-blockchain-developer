@@ -204,3 +204,9 @@ A decentralized application (DApp) is an application that has its backend code r
 **Resources**
 [DappRadar](https://dappradar.com/)
 [State of the DApps](https://www.stateofthedapps.com/)
+
+## Prepare to Connec to the Network
+
+### Overview of web3.js
+
+Allows us to interact with data on the Ethereum network. MetaMask runs entirely on the ability to inject a web3 provider into the browser.
